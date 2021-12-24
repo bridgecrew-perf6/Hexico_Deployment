@@ -9,6 +9,9 @@ function App() {
         <p>
           Hello from the Hexico Development Team!
         </p>
+        <p>
+          Only on local baby
+        </p>
 
 
  
