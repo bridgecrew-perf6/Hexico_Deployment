@@ -10,12 +10,6 @@ function App() {
           Hello from the Hexico Development Team!
         </p>
 
-        <p>
-          Gabe was here
-        </p>
-        <p>
-          Cole was also here
-        </p>
  
       </header>
     </div>
