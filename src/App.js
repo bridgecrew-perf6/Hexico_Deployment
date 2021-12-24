@@ -13,6 +13,9 @@ function App() {
         <p>
           Gabe was here
         </p>
+        <p>
+          Cole was also here
+        </p>
  
       </header>
     </div>
