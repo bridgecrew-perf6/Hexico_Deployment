@@ -14,7 +14,7 @@ function App() {
         </p>
 
         <p>
-          Did you fuck it up?
+          No i did not
         </p>
 
 
