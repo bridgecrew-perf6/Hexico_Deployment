@@ -1,6 +1,12 @@
 import WalletCard from './WalletCard'
 import Input from './Input'
+import Web3 from 'web3';
 import './App.css';
+
+
+
+
+// you already know that literally all of the code possible is going to go in this doc
 
 function App() {
   return (

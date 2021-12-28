@@ -6,7 +6,7 @@ const WalletCard = () => {
     const [errorMessage, setErrorMessage] = useState(null);
 	const [defaultAccount, setDefaultAccount] = useState(null);
 	const [userBalance, setUserBalance] = useState(null);
-	const [connButtonText, setConnButtonText] = useState('Connect Wallet');
+	const [connButtonText, setConnButtonText] = useState('Connect to MetaMask');
 
 	const connectWalletHandler = () => {
         // this checks to see if an 'ethereum' property is in the browser AND THEN checks to see if it belongs to Metamask
@@ -42,6 +42,7 @@ const WalletCard = () => {
 	}
 
 	const getAccountBalance = (account) => {
+		// this uses a new request using the account to the get balance
 		window.ethereum.request({method: 'eth_getBalance', params: [account, 'latest']})
 		.then(balance => {
 			setUserBalance(ethers.utils.formatEther(balance));
@@ -64,13 +65,13 @@ const WalletCard = () => {
 
    return (
 		<div className='walletCard'>
-		<h4> {"Connection to MetaMask using window.ethereum methods"} </h4>
+		<h4> {"Connect! to User's MetaMask account"} </h4>
 			<button onClick={connectWalletHandler}>{connButtonText}</button>
 			<div className='accountDisplay'>
-				<h3>Address: {defaultAccount}</h3>
+				<h3>User's Address: {defaultAccount}</h3>
 			</div>
 			<div className='balanceDisplay'>
-				<h3>Balance: {userBalance}</h3>
+				<h3>Current Balance: {userBalance}</h3>
 			</div>
 			{errorMessage}
 		</div>
