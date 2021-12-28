@@ -1,5 +1,6 @@
 import WalletCard from './WalletCard'
 import Input from './Input'
+// eslint-disable-next-line
 import Web3 from 'web3';
 import './App.css';
 
@@ -12,7 +13,7 @@ function App() {
     <div className="App">
         <h1>
           Hello from the Hexico Development Team!
-          Please still work
+
         </h1>
         <WalletCard/>
         <div>

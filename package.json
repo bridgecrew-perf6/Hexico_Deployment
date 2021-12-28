@@ -1,6 +1,6 @@
 {
-  "homepage": "http://harrison-cole-wilkinson.github.io/Hexico_Deployment_2",
-  "name": "hello",
+  "homepage": "http://harrison-cole-wilkinson.github.io/Hexico_Deployment",
+  "name": "Hexico_Deployment",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,12 +27,13 @@
     "web3": "^1.6.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-app-rewired eject"
+
   },
   "eslintConfig": {
     "extends": [
