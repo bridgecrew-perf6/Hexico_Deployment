@@ -16,6 +16,9 @@ function App() {
 
         </h1>
         <WalletCard/>
+        <div1>
+          Info about what the shareRatePremium is
+        </div1>
         <div>
           shareRatePremium
         </div>
