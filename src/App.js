@@ -13,6 +13,7 @@ function App() {
     <div className="App">
         <h1>
           Hello from the Hexico Development Team!
+          Please tell me you can see this
 
         </h1>
         <WalletCard/>
