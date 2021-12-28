@@ -57,7 +57,7 @@ const WalletCard = () => {
 		window.location.reload();
 	}
 
-
+	
 	// listen for account changes
 	window.ethereum.on('accountsChanged', accountChangedHandler);
 
@@ -65,7 +65,7 @@ const WalletCard = () => {
 
    return (
 		<div className='walletCard'>
-		<h4> {"Connect! to User's MetaMask account"} </h4>
+		<h4> {"Connect to User's MetaMask account"} </h4>
 			<button onClick={connectWalletHandler}>{connButtonText}</button>
 			<div className='accountDisplay'>
 				<h3>User's Address: {defaultAccount}</h3>
