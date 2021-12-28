@@ -4,7 +4,7 @@ import Web3 from 'web3';
 import './App.css';
 
 
-
+const web3 = new Web3(Web3.givenProvider || "http://localhost:8545")
 
 // you already know that literally all of the code possible is going to go in this doc
 
