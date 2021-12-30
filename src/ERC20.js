@@ -5,7 +5,6 @@ import {ShareMinterAddress, ShareMinterABI, HexAddress, erc20Abi} from './config
 
 
 let selectedAccount;
-let money;
 // let nftContract;
 let erc20Contract;
 let ShareMinter;
