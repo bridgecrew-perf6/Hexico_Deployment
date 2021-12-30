@@ -1,6 +1,6 @@
 // import NFTContractBuild from 'contracts/NFT.json';
 import Web3 from 'web3';
-import {ShareMinterAddress, ShareMinterABI} from './config'
+import {ShareMinterAddress, ShareMinterABI, HexAddress} from './config'
 
 
 let selectedAccount;
@@ -67,7 +67,7 @@ export const init = async () => {
 	erc20Contract = new web3.eth.Contract(
 		erc20Abi,
 		// Hex contract on Mainnet
-		'0x2b591e99afe9f32eaa6214f7b7629768c40eeb39'
+		HexAddress
 	);
 
 	isInitialized = true;

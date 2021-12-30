@@ -1,9 +1,5 @@
-import WalletCard from './WalletCard'
-import Web3 from 'web3';
 import './App.css';
 import React, {useEffect, useState, Component} from 'react'
-import {ShareMinterAddress, ShareMinterContract} from './config'
-import { ShareMinterABI } from './config';
 import { init , getOwnBalance} from './ERC20';
 
 
@@ -37,7 +33,7 @@ useEffect(() => {
               <h1>
           Hello from the Hexico Development Team!
         </h1>
-			<h2>Your Hex balance is :: {balance}</h2>
+			<h2>Your Hex balance is {balance} HEX</h2>
 			{/* <button onClick={() => fetchHexBalance()}>Refresh balance</button> */}
       <p>    Description <br/>Shares: <input type="text" id="myText"/></p>
     <p> Description <br/> Time: <input type="text" id="myText"/></p>
