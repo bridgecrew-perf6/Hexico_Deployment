@@ -43,7 +43,7 @@ useEffect(() => {
     
 		<div className="App">
               <h1>
-          Hello from the Hexico Development Team!
+          Hello from the Hexico Development Team! Now deployed
         </h1>
 			<h2>Your Stakes are {stakes} </h2>
 			{/* <button onClick={() => fetchHexBalance()}>Refresh balance</button> */}
