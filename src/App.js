@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useEffect, useState, Component} from 'react'
+import React, {useEffect, useState} from 'react'
 import { init , getOwnBalance, getStakes} from './ERC20';
 
 

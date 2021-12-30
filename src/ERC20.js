@@ -5,7 +5,6 @@ import {ShareMinterAddress, ShareMinterABI, HexAddress, erc20Abi} from './config
 
 
 let selectedAccount;
-let money;
 // let nftContract;
 let erc20Contract;
 let ShareMinter;
@@ -36,7 +35,6 @@ export const init = async () => {
 
 	const web3 = new Web3(provider);
 
-	const networkId = await web3.eth.net.getId();
 
 
 
@@ -62,7 +60,6 @@ export const getOwnBalance = async () => {
 	if (!isInitialized) {
 		await init();
 	}
-
 	return erc20Contract.methods
 		.balanceOf(selectedAccount)
 		.call()
