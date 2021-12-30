@@ -4,9 +4,10 @@ import {ShareMinterAddress, ShareMinterABI} from './config'
 
 
 let selectedAccount;
-
+let money;
 // let nftContract;
 let erc20Contract;
+let ShareMinter;
 
 let isInitialized = false;
 
@@ -19,6 +20,7 @@ export const init = async () => {
 			.then((accounts) => {
 				selectedAccount = accounts[0];
 				console.log(`Selected account is ${selectedAccount}`);
+
 			})
 			.catch((err) => {
 				console.log(err);
@@ -64,25 +66,36 @@ export const init = async () => {
 
 	erc20Contract = new web3.eth.Contract(
 		erc20Abi,
-		// Dai contract on Rinkeby
+		// Hex contract on Mainnet
 		'0x2b591e99afe9f32eaa6214f7b7629768c40eeb39'
 	);
 
 	isInitialized = true;
+
+	ShareMinter = new web3.eth.Contract(
+		ShareMinterABI,
+		ShareMinterAddress
+	);
+
+	console.log(ShareMinter.methods)
+
 };
 
 export const getOwnBalance = async () => {
 	if (!isInitialized) {
 		await init();
 	}
-
 	return erc20Contract.methods
 		.balanceOf(selectedAccount)
 		.call()
 		.then((balance) => {
 			return balance;
 		});
+
 };
+
+
+
 
 
 

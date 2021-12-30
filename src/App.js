@@ -1,59 +1,51 @@
 import WalletCard from './WalletCard'
 import Web3 from 'web3';
 import './App.css';
-import React, {Component} from 'react'
-import {ShareMinterAddress, ShareMinterABI, randomB, randomA} from './config'
+import React, {useEffect, useState, Component} from 'react'
+import {ShareMinterAddress, ShareMinterContract} from './config'
+import { ShareMinterABI } from './config';
+import { init , getOwnBalance} from './ERC20';
 
 
 
 // you already know that literally all of the code possible is going to go in this doc
-
-class App extends Component {
-
-  componentWillMount(){
-    this.loadBlockchainData()
-  }
-
-  async loadBlockchainData(){
-    const web3 = new Web3(Web3.givenProvider || "http://localhost:8545")
-    const accounts = await web3.eth.getAccounts()
-    this.setState({ account: accounts[0] })
-    const network =   await web3.eth.net.getNetworkType()
-    console.log("network of this shit is:", network)
-    const share_minter = new web3.eth.Contract(ShareMinterABI, ShareMinterAddress)
-    // The address and ABI are being pulled in correctly, but it must not be finding the correct contracts cause they aren't right
-    console.log("this is the new shit", share_minter)
-  }
-
-  constructor(props){
-    super(props)
-    this.state = {
-      account: '',
-      taskCount: 0
-    }
+function App() {
+  const [balance, setBalance] = useState(null);
 
 
-  }
+
+useEffect(() => {
+  init()
+  fetchHexBalance()
+}, [])
+
+	const fetchHexBalance = () => {
+		getOwnBalance()
+			.then((balance) => {
+				setBalance(balance/100000000);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
   
-  render() { 
-  return (
-    <div className="App">
-        <h1>
+
+	return (
+    
+		<div className="App">
+              <h1>
           Hello from the Hexico Development Team!
         </h1>
-        <p> Task Count: {this.state.taskCount} </p>
-        <p>
-          Account: {this.state.a}
-        </p>
-        <WalletCard/>
-
-
-
-
-    </div>
-  
-  );
-  }
+			<h2>Your Hex balance is :: {balance}</h2>
+			{/* <button onClick={() => fetchHexBalance()}>Refresh balance</button> */}
+      <p>    Description <br/>Shares: <input type="text" id="myText"/></p>
+    <p> Description <br/> Time: <input type="text" id="myText"/></p>
+    <p> Description<br/> Premium: <input type="text" id="myText"/> </p>
+    <button type="button">Stake</button>
+    <p id="demo"></p>
+		</div>
+	);
 }
 
 export default App;

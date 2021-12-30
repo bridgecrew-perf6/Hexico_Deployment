@@ -3,7 +3,7 @@ export const randomA = '0x25A06D4e1f804Ce62Cf11b091180a5C84980d93a'
 
 export const ShareMinterAddress = '0xe89caA7B7E4CD6CDD6a0bd33b3b4Eec7068a8f85'
 
-export const ShareMinterABI= [
+export const ShareMinterABI=
     [
         {
           "inputs": [
@@ -226,4 +226,4 @@ export const ShareMinterABI= [
           "stateMutability": "view",
           "type": "function"
         }
-      ] ]
+      ] 
