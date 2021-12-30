@@ -48,8 +48,8 @@ useEffect(() => {
 			<h2>Your Stakes are {stakes} </h2>
 			{/* <button onClick={() => fetchHexBalance()}>Refresh balance</button> */}
       <h3>Shares to stake (Your Hex balance is {balance} HEX) <br/>Shares: <input type="text" id="myText"/></h3>
-    <p> Description <br/> Time: <input type="text" id="myText"/></p>
-    <p> Description<br/> Premium: <input type="text" id="myText"/> </p>
+    <p> Description: How long the recipient wants to stake HEX for <br/> Time: <input type="text" id="myText"/></p>
+    <p> Description: What percentage of the T-Shares the recipient will keep as a premium<br/> Premium: <input type="text" id="myText"/> </p>
     <button type="button">Stake</button>
     <p id="demo"></p>
 		</div>
