@@ -1,6 +1,7 @@
 // import NFTContractBuild from 'contracts/NFT.json';
 import Web3 from 'web3';
-import {ShareMinterAddress, ShareMinterABI, HexAddress} from './config'
+import {ShareMinterAddress, ShareMinterABI, HexAddress, erc20Abi} from './config'
+
 
 
 let selectedAccount;
@@ -37,32 +38,8 @@ export const init = async () => {
 
 	const networkId = await web3.eth.net.getId();
 
-	// nftContract = new web3.eth.Contract(
-	// 	NFTContractBuild.abi,
-	// 	NFTContractBuild.networks[networkId].address
-	// );
 
-	const erc20Abi = [
-		{
-			constant: true,
-			inputs: [
-				{
-					name: '_owner',
-					type: 'address'
-				}
-			],
-			name: 'balanceOf',
-			outputs: [
-				{
-					name: 'balance',
-					type: 'uint256'
-				}
-			],
-			payable: false,
-			stateMutability: 'view',
-			type: 'function'
-		}
-	];
+
 
 	erc20Contract = new web3.eth.Contract(
 		erc20Abi,
@@ -77,7 +54,7 @@ export const init = async () => {
 		ShareMinterAddress
 	);
 
-	console.log(ShareMinter.methods)
+	console.log("MINTER",ShareMinter.methods)
 
 };
 
@@ -85,6 +62,7 @@ export const getOwnBalance = async () => {
 	if (!isInitialized) {
 		await init();
 	}
+
 	return erc20Contract.methods
 		.balanceOf(selectedAccount)
 		.call()
@@ -94,17 +72,20 @@ export const getOwnBalance = async () => {
 
 };
 
+export const getStakes = async () => {
+	if (!isInitialized) {
+		await init();
+	}
+	return erc20Contract.methods
+	.stakeCount(selectedAccount)
+	.call()
+	.then((count) => {
+		return count;
+	});
+}
 
 
 
 
 
-// export const mintToken = async () => {
-// 	if (!isInitialized) {
-// 		await init();
-// 	}
 
-// 	return nftContract.methods
-// 		.mint(selectedAccount)
-// 		.send({ from: selectedAccount });
-// };

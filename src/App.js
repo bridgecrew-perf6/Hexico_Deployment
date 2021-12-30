@@ -1,18 +1,20 @@
 import './App.css';
 import React, {useEffect, useState, Component} from 'react'
-import { init , getOwnBalance} from './ERC20';
+import { init , getOwnBalance, getStakes} from './ERC20';
 
 
 
 // you already know that literally all of the code possible is going to go in this doc
 function App() {
   const [balance, setBalance] = useState(null);
+  const [stakes, setStakes] = useState(null);
 
 
 
 useEffect(() => {
   init()
   fetchHexBalance()
+  fetchStakes()
 }, [])
 
 	const fetchHexBalance = () => {
@@ -25,6 +27,16 @@ useEffect(() => {
 			});
 	};
 
+	const fetchStakes = () => {
+		getStakes()
+		.then((stakes) => {
+			setStakes(stakes);
+		})
+		.catch((err) => {
+			console.log(err);
+		})
+	};
+
   
 
 	return (
@@ -33,9 +45,9 @@ useEffect(() => {
               <h1>
           Hello from the Hexico Development Team!
         </h1>
-			<h2>Your Hex balance is {balance} HEX</h2>
+			<h2>Your Stakes are {stakes} </h2>
 			{/* <button onClick={() => fetchHexBalance()}>Refresh balance</button> */}
-      <p>    Description <br/>Shares: <input type="text" id="myText"/></p>
+      <h3>Shares to stake (Your Hex balance is {balance} HEX) <br/>Shares: <input type="text" id="myText"/></h3>
     <p> Description <br/> Time: <input type="text" id="myText"/></p>
     <p> Description<br/> Premium: <input type="text" id="myText"/> </p>
     <button type="button">Stake</button>
