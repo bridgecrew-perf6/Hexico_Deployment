@@ -33,11 +33,14 @@ export const init = async () => {
 		});
 	}
 
+
+
 	const web3 = new Web3(provider);
 
-
+	
 	const networkId = await web3.eth.net.getId();
 	console.log(networkId)
+
 
 
 
@@ -58,11 +61,19 @@ export const init = async () => {
 
 };
 
-export const getOwnBalance = async () => {
+export const addy = async () => {
+
 	if (!isInitialized) {
 		await init();
 	}
 
+	return selectedAccount;
+}
+
+
+export const getOwnBalance = async () => {
+
+	
 	return erc20Contract.methods
 		.balanceOf(selectedAccount)
 		.call()
@@ -71,6 +82,8 @@ export const getOwnBalance = async () => {
 		});
 
 };
+
+
 
 export const getStakes = async () => {
 	if (!isInitialized) {
