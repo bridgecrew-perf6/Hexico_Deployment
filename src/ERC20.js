@@ -72,8 +72,9 @@ export const addy = async () => {
 
 
 export const getOwnBalance = async () => {
-
-	
+	if (!isInitialized) {
+		await init();
+	}
 	return erc20Contract.methods
 		.balanceOf(selectedAccount)
 		.call()
