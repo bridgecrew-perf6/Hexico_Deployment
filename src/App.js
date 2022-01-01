@@ -98,15 +98,7 @@ const fetchAddress = () => {
 		})}
 	  </>);
 	  }
-
-	//function editSupplier() {
-	//	document.getElementById("supplier").readOnly = false;
-	//}
-	window.onload = function() {
-		document.getElementById('myButton').onclick = function() {
-			document.getElementById('myInput').readOnly = false;
-		};
-	}
+	
 
 	const Input = (props) =>{
 		const {name, description, box} = props.input
@@ -119,13 +111,23 @@ const fetchAddress = () => {
 		else {
 			return ( <> 
 				<h2>{name}   <Popup trigger={<Button>Info</Button>} content={description} hoverable/></h2>
-				<input autoComplete='off' type="text" id="supplier" defaultValue={box} readOnly={true}/> <button type='button' id='myButton'>Edit Supplier</button>
+				<input autoComplete='off' type="text" id="supplier" defaultValue={box} readOnly/> <Button id='myButton' type="submit">Edit Supplier</Button>
 				</>
 		)
 		}
 	}
 
-	
+
+	//function editSupplier() {
+	//	document.getElementById("supplier").removeAttribute('readonly');
+	//}
+
+	//window.onload = function() {
+	//	document.getElementById('myButton').onclick = function() {
+	//		document.getElementById('myInput').removeAttribute('readonly');
+	//		console.log('is this working');
+	//	};
+	//}
 
 	return (
     
