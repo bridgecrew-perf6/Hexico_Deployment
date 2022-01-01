@@ -91,20 +91,29 @@ const fetchAddress = () => {
 	function InputList(){
 		return(<>
 		{descs.map((input) => {
-		  return(
-		  <Input key ={input.id} input={input}/>
-		  )
+			return(
+			<Input key={input.id} input={input}/>
+			)
+		
 		})}
 	  </>);
 	  }
 
 	const Input = (props) =>{
 		const {name, description, box} = props.input
-		return ( <> 
-			<h2>{name}   <Popup trigger={<Button>Info</Button>} content={description} hoverable/></h2>
-			<input autocomplete="off" type="text" id="myText" placeholder={box}/>
-			</>
+		if (name !== 'Supplier')
+			return ( <> 
+				<h2>{name}   <Popup trigger={<Button>Info</Button>} content={description} hoverable/></h2>
+				<input autoComplete='off' type="text" id="myText" placeholder={box}/>
+				</>
 		)
+		else {
+			return ( <> 
+				<h2>{name}   <Popup trigger={<Button>Info</Button>} content={description} hoverable/></h2>
+				<input autoComplete='off' type="text" id="myText" defaultValue={box}/>
+				</>
+		)
+		}
 	}
 
 
