@@ -99,6 +99,15 @@ const fetchAddress = () => {
 	  </>);
 	  }
 
+	//function editSupplier() {
+	//	document.getElementById("supplier").readOnly = false;
+	//}
+	window.onload = function() {
+		document.getElementById('myButton').onclick = function() {
+			document.getElementById('myInput').readOnly = false;
+		};
+	}
+
 	const Input = (props) =>{
 		const {name, description, box} = props.input
 		if (name !== 'Supplier')
@@ -110,12 +119,13 @@ const fetchAddress = () => {
 		else {
 			return ( <> 
 				<h2>{name}   <Popup trigger={<Button>Info</Button>} content={description} hoverable/></h2>
-				<input autoComplete='off' type="text" id="myText" defaultValue={box}/>
+				<input autoComplete='off' type="text" id="supplier" defaultValue={box} readOnly={true}/> <button type='button' id='myButton'>Edit Supplier</button>
 				</>
 		)
 		}
 	}
 
+	
 
 	return (
     
