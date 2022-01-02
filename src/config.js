@@ -1,40 +1,5 @@
 
-	export const descs = [
-		{
-			id: 1,
-			name: 'Shares',
-			description: 'Shares to stake',
-			box: 'Shares to stake'
-		},
-		{
-			id: 2,
 
-			name: 'Receiver',
-			description: 'Contact to receive newly minted stake',
-			box: 'Receiver Address'
-		},
-		{
-			id: 3,
-
-			name: 'Supplier',
-			description: 'The Reinbursement address for the supplier',
-			box: 'Supplier Address'
-		},
-		{
-			id: 4,
-
-			name: 'Time',
-			description: 'How long the recipient wants to stake HEX',
-			box: 'Length of Stake'
-		},
-		{
-			id: 5,
-
-			name: 'Premium',
-			description: 'What percentage of the T-shares the recipient will keep as a premium',
-			box: '0-99.9%'
-		}
-	]
 
 
 export const ShareMinterAddress = '0xe89caA7B7E4CD6CDD6a0bd33b3b4Eec7068a8f85'

@@ -2,6 +2,7 @@ import './App.css';
 import React, {useEffect, useState} from 'react'
 import { init , getOwnBalance, getStakes, addy} from './ERC20';
 import {Popup, Button} from 'semantic-ui-react'
+import {Popup as Popup2} from 'reactjs-popup' 
 
 
 
@@ -10,6 +11,7 @@ function App() {
   const [balance, setBalance] = useState(null);
   const [stakes, setStakes] = useState(null);
   const [address, setAddress] = useState(null);
+  const [stakeinfo, setStakeInfo] = useState([]);
 
 
 
@@ -56,7 +58,7 @@ const fetchAddress = () => {
 			id: 1,
 			name: 'Shares',
 			description: 'Shares to stake',
-			box: 'Shares to stake'
+			box: 'Shares to stake (must be less than your current balance of '+balance+')'
 		},
 		{
 			id: 2,
@@ -104,14 +106,14 @@ const fetchAddress = () => {
 		const {name, description, box} = props.input
 		if (name !== 'Supplier')
 			return ( <> 
-				<h2>{name}   <Popup trigger={<Button>Info</Button>} content={description} hoverable/></h2>
-				<input autoComplete='off' type="text" id="myText" placeholder={box}/>
+				<h2>{name}   <Popup trigger={<Button>Info</Button>} content={description} hoverable position="right center"/></h2>
+				<input autoComplete='off' type="text" id="myText" placeholder={box} style={{width: "400px"}}/>
 				</>
 		)
 		else {
 			return ( <> 
-				<h2>{name}   <Popup trigger={<Button>Info</Button>} content={description} hoverable/></h2>
-				<input autoComplete='off' type="text" id="supplier" defaultValue={box} readOnly/> <Button id='myButton' type="submit">Edit Supplier</Button>
+				<h2>{name}   <Popup trigger={<Button>Info</Button>} content={description} hoverable position="right center"/></h2>
+				<input autoComplete='off' type="text" id="supplier" defaultValue={box} readOnly style={{width: "300px"}}/> <Button id='myButton' type="submit">Edit Supplier</Button>
 				</>
 		)
 		}
@@ -135,12 +137,27 @@ const fetchAddress = () => {
                <h1>
 		Hello from the Hexico Development Team! Now deployed 
         </h1>
-			<h2>Your number of current stakes is {stakes} <br/> Your Hex balance is {balance} HEX  <br/> Your connected Address is {address}</h2>
+			{/* <h2>Your number of current stakes is {stakes} <br/> Your Hex balance is {balance} HEX  <br/> Your connected Address is {address}</h2> */}
 			<InputList/>
 			<br/>
 			<br/>
 
-			<button type="button">Stake</button>
+			<Popup2 trigger={<button> Stake </button>} position="bottom center">
+				<h3>Are you sure the following information is correct</h3>
+				<div>
+					Address :: {address}
+				</div>
+				<div>
+					Shares :: SHARES
+				</div>
+				<div>
+					Premium :: Premium
+				</div>
+				<div>
+					Time :: TIME
+				</div>
+				<button position= 'center'>Confirm Stake</button>
+			</Popup2>
 
 
 
