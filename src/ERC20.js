@@ -58,9 +58,7 @@ export const init = async () => {
 
 	console.log("MINTER",ShareMinter.methods)
 	
-	if (selectedAccount == undefined) {
-		window.location.reload(false)
-	}
+
 };
 
 export const addy = async () => {
@@ -68,6 +66,8 @@ export const addy = async () => {
 	if (!isInitialized) {
 		await init();
 	}
+
+
 
 	return selectedAccount;
 }

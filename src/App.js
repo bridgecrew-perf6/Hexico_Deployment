@@ -25,6 +25,8 @@ useEffect(() => {
   fetchAddress()
 }, [])
 
+
+
 const fetchAddress = () => {
 	addy()
 		.then((address) => {
@@ -54,8 +56,6 @@ const fetchAddress = () => {
 			console.log(err);
 		})
 	};
-
-
 		const handleSubmit = (e) => {
 		  e.preventDefault();
 		  console.log("SHARES",shares)
@@ -66,6 +66,8 @@ const fetchAddress = () => {
 
 	  
 		}
+
+
 		return <>
 				<h4>
 			Your hex balance is {balance}

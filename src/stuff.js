@@ -2,6 +2,8 @@
   const [balance, setBalance] = useState(null);
   const [stakes, setStakes] = useState(null);
   const [address, setAddress] = useState(null);
+  const [stakeinfo, setStakeInfo] = useState([]);
+  const [testing, setTesting] = useState('yes');
 
 
 
@@ -42,7 +44,15 @@ const fetchAddress = () => {
 		})
 	};
 
-
+	const changeTesting = () =>{
+		console.log(testing)
+		if(testing == 'yes'){
+			setTesting('no');
+		}
+		else{
+			setTesting('yes');
+		}
+	};
 
   
 	const descs = [
@@ -135,25 +145,28 @@ const fetchAddress = () => {
 			<br/>
 
 			<Popup2 trigger={<button> Stake </button>} position="bottom center">
-         
 				<h3>Are you sure the following information is correct</h3>
 				<div>
 					Address :: {address}
 				</div>
 				<div>
-					Shares :: {shares}
+					Shares :: SHARES
 				</div>
 				<div>
-					Premium :: {premium}
+					Premium :: Premium
 				</div>
 				<div>
-					Time :: {time}
+					Time :: TIME
 				</div>
 				<button position= 'center'>Confirm Stake</button>
-    
 			</Popup2>
 
-
+			<br/> <br/>
+			<button type = 'button' onClick={changeTesting}>
+				press me
+			</button>
+			<br/>
+			{testing}
 
 
 
