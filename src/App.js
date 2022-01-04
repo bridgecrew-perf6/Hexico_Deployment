@@ -80,6 +80,8 @@ const fetchAddress = () => {
 
 
 		return <>
+		<br/>
+		<br/>
 				<h4>
 			Your hex balance is {balance}
 		</h4>
@@ -102,7 +104,7 @@ const fetchAddress = () => {
 
 			  value={shares}
 			  onChange={(e) => setShares(e.target.value)}/>
-			  <Popup trigger={<Button>Info</Button>} content={'Hearts to stake (must be less than your current balance of '+balance+')'} hoverable position="right center"/>
+			  <Popup trigger={<Button>Info</Button>} content={'Hearts to stake (must be less than '+balance+')'} hoverable position="right center"/>
 		  </div>
 		  <div className ='form-control'>
 			<label>
@@ -157,7 +159,10 @@ const fetchAddress = () => {
 			  <div className='container'> 
 				<h3>Are you sure the following information is correct</h3>
 				<div>
-					Shares :: {shares}
+					Hearts :: {shares}
+				</div>
+				<div>
+					Time :: {time}
 				</div>
 				<div>
 					Receiver :: {receiver}
@@ -167,9 +172,6 @@ const fetchAddress = () => {
 				</div>
 				<div>
 					Premium :: {premium}
-				</div>
-				<div>
-					Time :: {time}
 				</div>
 				<button position= 'center' onClick={startStake}>Confirm Stake</button>
 				</div>
