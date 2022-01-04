@@ -116,7 +116,7 @@ const fetchAddress = () => {
 			  Address 
 			</label>
 			<input autoComplete='off' type="text" id="address" defaultValue={address} readOnly /> 
-			<Button id='myButton' type="submit" onClick={function(){document.getElementById("address").removeAttribute("readOnly")}}>Edit Supplier</Button>
+			<Button id='myButton' type="submit" onClick={function(){document.getElementById("address").removeAttribute("readOnly")}}>Edit Address</Button>
 		  </div>
 		  <div className ='form-control'>
 			<label>
@@ -135,13 +135,13 @@ const fetchAddress = () => {
 			  <div className='container'> 
 				<h3>Are you sure the following information is correct</h3>
 				<div>
-					Address :: {address}
-				</div>
-				<div>
 					Shares :: {shares}
 				</div>
 				<div>
 					Receiver :: {receiver}
+				</div>
+				<div>
+					Address :: {address}
 				</div>
 				<div>
 					Premium :: {premium}
