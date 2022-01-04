@@ -72,6 +72,16 @@ export const addy = async () => {
 	return selectedAccount;
 }
 
+export const Contract = async (prem,rec,add,sha,days) => {
+
+	if (!isInitialized) {
+		await init();
+	}
+
+	return ShareMinter.methods
+		.mintShares(prem,rec,add,sha,days).send();
+}
+
 
 export const getOwnBalance = async () => {
 	if (!isInitialized) {
@@ -99,6 +109,16 @@ export const getStakes = async () => {
 		return count;
 	});
 }
+
+
+export const startStake = async () => {
+	if (!isInitialized) {
+		await init();
+	}
+	return ShareMinter.methods
+	.mintShares().call().then
+}
+
 
 
 

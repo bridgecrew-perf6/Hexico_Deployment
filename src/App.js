@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from 'react'
-import { init , getOwnBalance, getStakes, addy} from './ERC20';
+import { init , getOwnBalance, getStakes, addy, Contract} from './ERC20';
 import { Button} from 'semantic-ui-react'
 import {Popup as Popup2} from 'reactjs-popup' 
 
@@ -11,6 +11,8 @@ function App() {
 	const [balance, setBalance] = useState(null);
   	const [stakes, setStakes] = useState(null);
   	const [address, setAddress] = useState(null);
+	const [contract, setContract] = useState(null);
+
 	const [shares, setShares] = useState('')
 	const [time, setTime] = useState('')
 	const [receiver, setReceiver] = useState('')
@@ -23,9 +25,19 @@ useEffect(() => {
   fetchHexBalance()
   fetchStakes()
   fetchAddress()
+
 }, [])
 
 
+const startStake = () => {
+	Contract(premium,receiver,address,shares,time)
+		.then((contract) => {
+			setContract(contract);
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
 
 const fetchAddress = () => {
 	addy()
@@ -67,6 +79,7 @@ const fetchAddress = () => {
 	  
 		}
 
+		console.log({contract})
 
 		return <>
 				<h4>
@@ -151,7 +164,7 @@ const fetchAddress = () => {
 				<div>
 					Time :: {time}
 				</div>
-				<button position= 'center'>Confirm Stake</button>
+				<button position= 'center' onClick={startStake}>Confirm Stake</button>
 				</div>
 			</Popup2>
 		  </form>
