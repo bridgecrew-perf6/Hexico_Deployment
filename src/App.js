@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useEffect, useState} from 'react'
 import { init , getOwnBalance, getStakes, addy} from './ERC20';
-import {Popup, Button} from 'semantic-ui-react'
+import { Button} from 'semantic-ui-react'
 import {Popup as Popup2} from 'reactjs-popup' 
 
 
