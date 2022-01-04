@@ -93,12 +93,13 @@ const fetchAddress = () => {
 		  <form className='form' onSubmit={handleSubmit}>
 		  <div className ='form-control'>
 			<label>
-			  Shares:  
+			  Staked Hearts  
 			</label>
 			<input 
 			type = 'text'
 			 id="Shares"
 			  name='Shares' 
+
 			  value={shares}
 			  onChange={(e) => setShares(e.target.value)}/>
 		  </div>
@@ -111,6 +112,7 @@ const fetchAddress = () => {
 			id="Time" 
 			name='Time' 
 			value={time}
+			placeholder='1-5555'
 			onChange={(e) => setTime(e.target.value)} />
 		  </div>
 		  <div className ='form-control'>
@@ -137,6 +139,7 @@ const fetchAddress = () => {
 			</label>
 			<input 
 			type = 'text' 
+			placeholder='0.0%-99.9%'
 			id="Premium" 
 			name='Premium' 
 			value={premium}
