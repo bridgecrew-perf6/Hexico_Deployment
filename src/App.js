@@ -15,7 +15,7 @@ function App() {
 
 	const [shares, setShares] = useState('')
 	const [time, setTime] = useState('')
-	const [receiver, setReceiver] = useState('')
+	const [receiver, setReceiver] = useState('0x2b591e99afe9f32eaa6214f7b7629768c40eeb39')
 	const [premium, setPremium] = useState('')
 
 
@@ -79,7 +79,6 @@ const fetchAddress = () => {
 	  
 		}
 
-		console.log({contract})
 
 		return <>
 				<h4>
