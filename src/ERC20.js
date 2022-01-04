@@ -20,7 +20,7 @@ export const init = async () => {
 			.then((accounts) => {
 				selectedAccount = accounts[0];
 				console.log(`Selected account is ${selectedAccount}`);
-
+				
 			})
 			.catch((err) => {
 				console.log(err);
@@ -32,7 +32,6 @@ export const init = async () => {
 			console.log(`Selected account changed to ${selectedAccount}`);
 		});
 	}
-
 
 
 	const web3 = new Web3(provider);
@@ -58,7 +57,10 @@ export const init = async () => {
 	);
 
 	console.log("MINTER",ShareMinter.methods)
-
+	
+	if (selectedAccount == undefined) {
+		window.location.reload(false)
+	}
 };
 
 export const addy = async () => {
