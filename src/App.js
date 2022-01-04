@@ -128,6 +128,7 @@ const fetchAddress = () => {
 			type = 'text' 
 			id="Receiver" 
 			name='Receiver' 
+			readOnly
 			value={receiver}
 			onChange={(e) => setReceiver(e.target.value)} />
 			<Popup trigger={<Button>Info</Button>} content={"Contact to receive newly minted stake (Hex Contract Address) "} hoverable position="right center"/>
