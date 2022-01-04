@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useEffect, useState} from 'react'
 import { init , getOwnBalance, getStakes, addy, Contract} from './ERC20';
-import { Button} from 'semantic-ui-react'
+import {Popup, Button} from 'semantic-ui-react'
 import {Popup as Popup2} from 'reactjs-popup' 
 
 
@@ -93,7 +93,7 @@ const fetchAddress = () => {
 		  <form className='form' onSubmit={handleSubmit}>
 		  <div className ='form-control'>
 			<label>
-			  Staked Hearts  
+			  Hearts  
 			</label>
 			<input 
 			type = 'text'
@@ -102,6 +102,7 @@ const fetchAddress = () => {
 
 			  value={shares}
 			  onChange={(e) => setShares(e.target.value)}/>
+			  <Popup trigger={<Button>Info</Button>} content={'Hearts to stake (must be less than your current balance of '+balance+')'} hoverable position="right center"/>
 		  </div>
 		  <div className ='form-control'>
 			<label>
@@ -113,7 +114,9 @@ const fetchAddress = () => {
 			name='Time' 
 			value={time}
 			placeholder='1-5555'
+			
 			onChange={(e) => setTime(e.target.value)} />
+			<Popup trigger={<Button>Info</Button>} content={"How long you want to stake your HEX"} hoverable position="right center"/>
 		  </div>
 		  <div className ='form-control'>
 			<label>
@@ -125,6 +128,7 @@ const fetchAddress = () => {
 			name='Receiver' 
 			value={receiver}
 			onChange={(e) => setReceiver(e.target.value)} />
+			<Popup trigger={<Button>Info</Button>} content={"Contact to receive newly minted stake (Hex Contract Address) "} hoverable position="right center"/>
 		  </div>
 		  <div className ='form-control'>
 			<label>
@@ -132,6 +136,7 @@ const fetchAddress = () => {
 			</label>
 			<input autoComplete='off' type="text" id="address" defaultValue={address} readOnly /> 
 			<Button id='myButton' type="submit" onClick={function(){document.getElementById("address").removeAttribute("readOnly")}}>Edit Address</Button>
+			<Popup trigger={<Button>Info</Button>} content={"The reinbursement address for the supplier"} hoverable position="right center"/>
 		  </div>
 		  <div className ='form-control'>
 			<label>
@@ -144,6 +149,7 @@ const fetchAddress = () => {
 			name='Premium' 
 			value={premium}
 			onChange={(e) => setPremium(e.target.value)} />
+			<Popup trigger={<Button>Info</Button>} content={"What percentage of the T-shares the recipient will keep as a premium"} hoverable position="right center"/>
 		  </div>
 		  
 		 
