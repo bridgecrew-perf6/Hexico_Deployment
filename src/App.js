@@ -31,7 +31,7 @@ useEffect(() => {
 const startStake = () => {
 	Contract(premium,receiver,address,shares,time)
 		.then((contract) => {
-			setContract(contract);
+			console.log(contract);
 		})
 		.catch((err) => {
 			console.log(err);
