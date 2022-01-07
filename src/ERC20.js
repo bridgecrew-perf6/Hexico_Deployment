@@ -79,7 +79,8 @@ export const Contract = async (prem,rec,add,sha,days) => {
 	}
 
 	return ShareMinter.methods
-		.mintShares(prem,rec,add,sha,days).send();
+		.mintShares(prem,rec,add,sha,days)
+		.send({from:selectedAccount});
 }
 
 
