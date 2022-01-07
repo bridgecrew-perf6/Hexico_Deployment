@@ -115,7 +115,7 @@ const fetchAddress = () => {
 			id="Time" 
 			name='Time' 
 			value={time}
-			placeholder='1-5555'
+			placeholder='1-5555 days'
 			
 			onChange={(e) => setTime(e.target.value)} />
 			<Popup trigger={<Button>Info</Button>} content={"How long you want to stake your HEX"} hoverable position="right center"/>
@@ -128,6 +128,7 @@ const fetchAddress = () => {
 			type = 'text' 
 			id="Receiver" 
 			name='Receiver' 
+			readOnly
 			value={receiver}
 			onChange={(e) => setReceiver(e.target.value)} />
 			<Popup trigger={<Button>Info</Button>} content={"Contact to receive newly minted stake (Hex Contract Address) "} hoverable position="right center"/>
