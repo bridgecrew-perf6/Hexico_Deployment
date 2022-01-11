@@ -36,6 +36,7 @@ const startStake = () => {
 		})
 		.catch((err) => {
 			console.log(err);
+			alert("Invalid Parameters!")
 		});
 };
 
