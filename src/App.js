@@ -24,7 +24,7 @@ useEffect(() => {
   fetchHexBalance()
   fetchStakes()
   fetchAddress()
-  
+
 }, [])
 
 
@@ -78,7 +78,6 @@ const fetchAddress = () => {
 	  
 		}
 
-		
 
 		return <>
 		<br/>
@@ -99,11 +98,9 @@ const fetchAddress = () => {
 			  Hearts  
 			</label>
 			<input 
-			type = 'number'
-			max={balance}
-			min='0'
-			id="Shares"
-			name='Shares' 
+			type = 'text'
+			 id="Shares"
+			  name='Shares' 
 
 			  value={shares}
 			  onChange={(e) => setShares(e.target.value)}/>
@@ -114,14 +111,11 @@ const fetchAddress = () => {
 			  Time : 
 			</label>
 			<input 
-			type = 'number'
-			max='5555'
-			min='0'
+			type = 'text' 
 			id="Time" 
 			name='Time' 
 			value={time}
 			placeholder='1-5555 days'
-			autoComplete='false'
 			
 			onChange={(e) => setTime(e.target.value)} />
 			<Popup trigger={<Button>Info</Button>} content={"How long you want to stake your HEX"} hoverable position="right center"/>
@@ -144,17 +138,7 @@ const fetchAddress = () => {
 			  Address 
 			</label>
 			<input autoComplete='off' type="text" id="address" defaultValue={address} readOnly /> 
-			<Button id='myButton' type="submit" value="ugh" onClick={function() {
-			if (document.getElementById("address").hasAttribute("readOnly")) {
-				document.getElementById("address").removeAttribute("readOnly");
-				document.getElementById("myButton").innerText = "Save Address"}
-			else {
-				document.getElementById("address").readOnly = true;
-				document.getElementById("myButton").innerText = "Edit Address"
-			}
-		}
-		
-		}>Edit Address</Button>
+			<Button id='myButton' type="submit" onClick={function(){document.getElementById("address").removeAttribute("readOnly")}}>Edit Address</Button>
 			<Popup trigger={<Button>Info</Button>} content={"The reinbursement address for the supplier"} hoverable position="right center"/>
 		  </div>
 		  <div className ='form-control'>
@@ -162,10 +146,7 @@ const fetchAddress = () => {
 			  Premium 
 			</label>
 			<input 
-			type ='number'
-			step='.1'
-			max='99.9'
-			min='0'
+			type = 'text' 
 			placeholder='0.0%-99.9%'
 			id="Premium" 
 			name='Premium' 
@@ -175,7 +156,7 @@ const fetchAddress = () => {
 		  </div>
 		  
 		 
-		  <Popup2 trigger={ <button type="submit"> Start Stake </button>} position="bottom center">
+		  <Popup2 ytrigger={ <button type="submit"> Start Stake </button>} position="bottom center">
 			  <div className='container'> 
 				<h3>Are you sure the following information is correct</h3>
 				<div>

@@ -4,10 +4,13 @@ import {ShareMinterAddress, ShareMinterABI, HexAddress, erc20Abi} from './config
 
 
 
+
 let selectedAccount;
 // let nftContract;
 let erc20Contract;
 let ShareMinter;
+
+
 
 let isInitialized = false;
 
@@ -78,8 +81,10 @@ export const Contract = async (prem,rec,add,sha,days) => {
 		await init();
 	}
 
+
+
 	return ShareMinter.methods
-		.mintShares(prem,rec,add,sha,days)
+		.mintShares(prem*10,rec,add,sha,days)
 		.send({from:selectedAccount});
 }
 
