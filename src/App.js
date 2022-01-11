@@ -11,7 +11,7 @@ function App() {
 	const [balance, setBalance] = useState(null);
   	const [stakes, setStakes] = useState(null);
   	const [address, setAddress] = useState(null);
-	const [stake, setStake] = useState(null);
+	// const [stake, setStake] = useState(null);
 
 	const [shares, setShares] = useState('')
 	const [time, setTime] = useState('')
