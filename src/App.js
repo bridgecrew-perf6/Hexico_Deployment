@@ -214,11 +214,11 @@ const fetchStake = () => {
 		</article>
 		<div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '110vh'}}>
 	
-		shareRatePremium:  {stake[0]} <br/>
-		lockedDay:  {stake[1]} <br/>
-		stakedDays:  {stake[2]} <br/>
-		minter:  {stake[3]} <br/>
-		receiver:  {stake[4]} <br/>
+		shareRatePremium:  0 <br/>
+		lockedDay: 0 <br/>
+		stakedDays:  0 <br/>
+		minter:  0 <br/>
+		receiver: 0 <br/>
 		</div>
 
 		</>
