@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from 'react'
-import { init , getOwnBalance, getStakes, addy, Contract} from './ERC20';
+import { init , getOwnBalance, getStakes, addy, Contract, viewStake} from './ERC20';
 import {Popup, Button} from 'semantic-ui-react'
 import {Popup as Popup2} from 'reactjs-popup' 
 
@@ -11,6 +11,7 @@ function App() {
 	const [balance, setBalance] = useState(null);
   	const [stakes, setStakes] = useState(null);
   	const [address, setAddress] = useState(null);
+	const [stake, setStake] = useState(null);
 
 	const [shares, setShares] = useState('')
 	const [time, setTime] = useState('')
@@ -24,6 +25,7 @@ useEffect(() => {
   fetchHexBalance()
   fetchStakes()
   fetchAddress()
+  fetchStake()
   
 }, [])
 
@@ -47,6 +49,17 @@ const fetchAddress = () => {
 			console.log(err);
 		});
 };
+
+const fetchStake = () => {
+	viewStake()
+		.then((stake) => {
+			setStake(stake)
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+
 
 	const fetchHexBalance = () => {
 		getOwnBalance()
@@ -175,7 +188,7 @@ const fetchAddress = () => {
 		  </div>
 		  
 		 
-		  <Popup2  trigger={ <button type="submit"> Start Stake </button>} position="bottom center">
+		  <Popup2  trigger={ <button type="submit"> Start Stake </button>} style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
 			    <div className='container'> 
 				<h3>Are you sure the following information is correct</h3>
 				<div>
@@ -197,7 +210,16 @@ const fetchAddress = () => {
 				</div>
 			</Popup2>
 		  </form>
+		  
 		</article>
+		<div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '110vh'}}>
+	
+		shareRatePremium:  {stake[0]} <br/>
+		lockedDay:  {stake[1]} <br/>
+		stakedDays:  {stake[2]} <br/>
+		minter:  {stake[3]} <br/>
+		receiver:  {stake[4]} <br/>
+		</div>
 
 		</>
 	  };

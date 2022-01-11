@@ -126,6 +126,21 @@ export const startStake = async () => {
 }
 
 
+export const viewStake = async () => {
+	if (!isInitialized) {
+		await init();
+	}
+	return ShareMinter.methods
+	.stakes(0)
+	.call()
+	.then((stake) => {
+		const yeah = [stake.shareRatePremium, stake.lockedDay, stake.stakedDays, stake.minter, stake.receiver]
+		console.log(yeah)
+		return yeah;
+	})
+}
+
+
 
 
 
